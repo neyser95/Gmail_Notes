@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autorefixer = require('autoprefixer');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -22,10 +22,11 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'style-loader' },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               importLoaders: 1,
               modules: true,
               localIdentName: '[name]_[local]_[hash:base64:5]'
@@ -41,12 +42,15 @@ module.exports = {
                 })
               ]
             }
-          },
-          {
-            test: /\.(png|jpe?g|gif)$/,
-            loader: 'url-loader?limit=800&name=images/[name].[ext]'
           }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8000
+        }
       }
     ]
   },
