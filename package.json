@@ -1,0 +1,39 @@
+{
+  "name": "gmail_notes",
+  "version": "1.0.0",
+  "description": "This application allows the user to take notes for their contacts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neyser95/Gmail_Notes.git"
+  },
+  "author": "Neyser Zana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neyser95/Gmail_Notes/issues"
+  },
+  "homepage": "https://github.com/neyser95/Gmail_Notes#readme",
+  "dependencies": {
+    "node-sass": "^4.9.4",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "css-loader": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react-hot-loader": "^4.3.11",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
