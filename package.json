@@ -1,0 +1,11 @@
+{
+  "name": "gmail-notes",
+  "description": "This application allows the user to take notes for their contacts.",
+  "version": "1.0.0",
+  "engines": {
+    "node": "11.10.0"
+  },
+  "scripts": {
+    "heroku-postbuild": "npm install --prefix server && npm install --prefix client"
+  }
+}
