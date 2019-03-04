@@ -1,24 +1,43 @@
-const user = (sequelize, DataTypes) => {
-  const User = sequelize.define('user', {
+const sequelize = require('./index');
+const Sequelize = require('sequelize');
+const userController = {};
+
+const User = sequelize.define(
+  'users',
+  {
     userEmail: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING,
       unique: true
     }
-  });
+  },
+  { timestamps: false }
+);
 
-  User.associate = models => {
-    User.hasMany(models.Message, { onDelete: 'CASCADE' });
-  };
-
-  User.findByLogin = async login => {
-    let user = await User.findOne({
-      where: { email: login }
+// * Creates a new user in the users table
+userController.createUser = (req, res, next) => {
+  console.log('This is the body', req.body);
+  User.create({
+    userEmail: req.body.userEmail
+  })
+    .then(response => {
+      res.locals.user = response;
+      next();
+    })
+    .catch(err => {
+      console.log(err);
     });
-
-    return user;
-  };
-
-  return User;
 };
 
-module.exports = user;
+// * Finds a specfic user in the users table
+userController.findUser = (req, res, next) => {
+  User.findOne({ where: { userEmail: req.body.userEmail } })
+    .then(user => {
+      res.locals.user = user;
+      next();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+module.exports = userController;
