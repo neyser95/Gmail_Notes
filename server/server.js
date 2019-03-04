@@ -15,6 +15,10 @@ app.use(bodyParser.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
+app.get('/googleddca52269c876c57.html', (req, res) => {
+  res.sendFile(path.join(__dirname+'../client/build/googleddca52269c876c57.html'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'../client/build/index.html'));
 });
