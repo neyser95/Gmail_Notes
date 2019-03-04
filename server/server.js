@@ -16,11 +16,11 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.get('/googleddca52269c876c57.html', (req, res) => {
-  res.sendFile(path.join(__dirname+'../client/build/googleddca52269c876c57.html'));
+  res.sendFile(path.join(__dirname + '../client/build/googleddca52269c876c57.html'));
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'../client/build/index.html'));
+  res.sendFile(path.join(__dirname + '../client/build/index.html'));
 });
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
