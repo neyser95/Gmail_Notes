@@ -11,4 +11,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.get('/api/greeting', (req, res) => {
+  res.json({res: 'HELLO FROM EXPRESS'});
+});
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
