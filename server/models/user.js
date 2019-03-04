@@ -7,12 +7,12 @@ const user = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    User.hasMany(models.Message);
+    User.hasMany(models.Message, { onDelete: 'CASCADE' });
   };
 
   User.findByLogin = async login => {
     let user = await User.findOne({
-      where: { email: login },
+      where: { email: login }
     });
 
     return user;
@@ -21,4 +21,4 @@ const user = (sequelize, DataTypes) => {
   return User;
 };
 
-export default user;
+module.exports = user;
