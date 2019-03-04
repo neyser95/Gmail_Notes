@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+#ignoring DS_Store
+.DS_Store
+
+#ignoring build folder
+build/*
+!build/build.xml
