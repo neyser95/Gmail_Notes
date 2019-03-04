@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/neyser95/Gmail_Notes#readme",
   "dependencies": {
+    "enzyme": "^3.9.0",
+    "jest": "^24.1.0",
     "node-sass": "^4.9.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
@@ -43,5 +45,6 @@
     "webpack": "^4.22.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
