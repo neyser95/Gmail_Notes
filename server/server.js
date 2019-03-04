@@ -2,9 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
-const config = require('./config');
+const config = require('./config/config');
+const postgresDB = require('./config/postgresDB');
 
 const app = express();
+
+// Connecting to postgres db
+postgresDB.connect();
 
 // Passport middleware to authenticate users
 app.use(passport.initialize());
