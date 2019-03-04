@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autorefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -54,19 +55,16 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, '.'),
-    port: 3000,
-    open: true,
-    hot: true
-  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      chunksSortMode: 'dependency'
-    }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+      chunksSortMode: 'dependency',
+      inject: 'body'
+    })
+  ],
+  optimization: {
+    minimizer: [new TerserPlugin()],
+    nodeEnv: 'production'
+  }
 };
